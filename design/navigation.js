@@ -14,16 +14,16 @@ const Navigation = () => {
     <NavigationContainer>
     <ResturantStack.Navigator>
       <ResturantStack.Screen
-      name="Start"
-      component={StartScreen}
-      options={{
+        name="Restaurants"
+        component={HomeScreen}
+        options={{
           headerShown: false
         }}
       />
       <ResturantStack.Screen
-        name="Restaurants"
-        component={HomeScreen}
-        options={{
+      name="Start"
+      component={StartScreen}
+      options={{
           headerShown: false
         }}
       />

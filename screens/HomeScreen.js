@@ -1,11 +1,14 @@
 import { StyleSheet,SafeAreaView} from 'react-native';
 import React from 'react';
+import SearchBarComponent from '../design/SearchBar';
+import CardFoodList from '../design/CardFoodList';
 
 
 const HomeScreen = () => {
   return (
-   <SafeAreaView >
-    Hello Home!!
+   <SafeAreaView style={styles.container} >
+   <SearchBarComponent />
+   <CardFoodList />
    </SafeAreaView>
   );
 };
@@ -13,5 +16,8 @@ const HomeScreen = () => {
 export default HomeScreen;
 
 const styles = StyleSheet.create({
- 
+   container : {
+      flex: 1,
+      padding: 20,
+   }
 });
