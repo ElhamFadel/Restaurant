@@ -6,6 +6,11 @@ const CardFoodList = () => {
   return (
     <ScrollView>
     <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
+    <Card />
     </ScrollView>
   )
 }

@@ -1,8 +1,9 @@
 import React from 'react';
-import { View, ScrollView, StyleSheet, Image } from 'react-native';
-import { Text, Card, Button, Icon, Rating } from 'react-native-elements';
+import { View } from 'react-native';
+import {  Card, Rating } from 'react-native-elements';
 import { SvgXml } from 'react-native-svg';
 import open from "../assets/open";
+import { Text } from './Text';
 const CardComponent = ({isOpenNow=true,isClosesTemporarily=true}) => {
   return (
     <>
@@ -11,10 +12,12 @@ const CardComponent = ({isOpenNow=true,isClosesTemporarily=true}) => {
             borderRadius: 5,
             width: '100%',
             margin: 0,
+            boxShadow: '5px 5px 5px 5px rgba(0,0,0,0.5)',
+            marginBottom: 10,
           }}
           >
             <Card.Image
-              style={{ padding: 0 }}
+              style={{ padding: 0,height: 200, width: '100%' }}
               source={{
                 uri:
                   'https://www.foodiesfeed.com/wp-content/uploads/2021/01/hot-shakshuka-819x1024.jpg',
@@ -34,15 +37,8 @@ const CardComponent = ({isOpenNow=true,isClosesTemporarily=true}) => {
           />
           {
             isClosesTemporarily && (
-              <Text style={{
-                fontSize: 15,
-                color: '#ff0000',
-                fontWeight: 'bold',
-                textTransform: 'uppercase',                
-              }}>
-                CLOSED TEMPORARILY
-              </Text>
-            )
+              <Text typography="alert" value='CLOSED TEMPORARILY' color="red" />
+             )
           }
 
           {
@@ -57,30 +53,11 @@ const CardComponent = ({isOpenNow=true,isClosesTemporarily=true}) => {
           }
           
           </View>
-            <Text style={{fontSize: 15, fontWeight: 'bold'}} >
-               100 m away
-            </Text>
+            <Text typography="p2" style={{fontWeight: 'bold'}}  value="100 m away"  />
           </Card>
     </>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  fonts: {
-    marginBottom: 8,
-  },
-  image: {
-    width: 30,
-    height: 30,
-    marginRight: 10,
-  },
-  name: {
-    fontSize: 16,
-    marginTop: 5,
-  },
-});
 
 export default CardComponent;
