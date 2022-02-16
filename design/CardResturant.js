@@ -4,7 +4,7 @@ import {  Card, Rating } from 'react-native-elements';
 import { SvgXml } from 'react-native-svg';
 import open from "../assets/open";
 import { Text } from './Text';
-const CardComponent = ({resturant:{restaurantName,description,restaurantFullAddress,logoUrl,rate}}) => {
+const CardComponent = ({resturant:{restaurantName,logoUrl,rate}}) => {
   return (
     <>
           <Card
@@ -53,7 +53,7 @@ const CardComponent = ({resturant:{restaurantName,description,restaurantFullAddr
           }
           
           </View>
-            <Text typography="p2" style={{fontWeight: 'bold'}}  value="100 m away"  />
+            <Text typography="p2" style={{fontWeight: 'bold'}}  value="100 some random street"  />
           </Card>
     </>
   );

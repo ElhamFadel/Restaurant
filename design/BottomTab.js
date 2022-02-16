@@ -17,7 +17,9 @@ const tabBarIcon = (iconName)=>({size,color})=>(
 const screenOptions = ({ route }) => {
    const iconName = Tab_Icon[route.name];
     return {
-      tabBarIcon:tabBarIcon(iconName)
+      tabBarIcon:tabBarIcon(iconName),
+      tabBarActiveTintColor: 'tomato',
+      tabBarInactiveTintColor: 'gray',
     };
   };
 
@@ -26,10 +28,6 @@ function Tabs() {
     <NavigationContainer>
     <Tab.Navigator
     screenOptions={screenOptions}
-    tabBarOptions={{
-      activeTintColor: 'tomato',
-      inactiveTintColor: 'gray',
-    }}
     >
       <Tab.Screen name="Restaurant"
        component={HomeScreen}
