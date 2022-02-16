@@ -4,7 +4,7 @@ import {  Card, Rating } from 'react-native-elements';
 import { SvgXml } from 'react-native-svg';
 import open from "../assets/open";
 import { Text } from './Text';
-const CardComponent = ({isOpenNow=true,isClosesTemporarily=true}) => {
+const CardComponent = ({resturant:{restaurantName,description,restaurantFullAddress,logoUrl,rate}}) => {
   return (
     <>
           <Card
@@ -20,29 +20,29 @@ const CardComponent = ({isOpenNow=true,isClosesTemporarily=true}) => {
               style={{ padding: 0,height: 200, width: '100%' }}
               source={{
                 uri:
-                  'https://www.foodiesfeed.com/wp-content/uploads/2021/01/hot-shakshuka-819x1024.jpg',
+                  `${logoUrl}`,
               }}
 
             />
             <Card.Title style={{ marginTop: 15, fontSize: 20, fontWeight: 'bold',alignSelf:'flex-start' }}>
-            Zuni Cafe</Card.Title>
+            {restaurantName}</Card.Title>
             <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginTop: 10 }}>
             <Rating
             type="star"
             fractions={1}
-            startingValue={3}
+            startingValue={rate}
             readonly
-            imageSize={25}
+            imageSize={20}
             style={{ alignSelf: 'flex-start',marginBottom:10 }}
           />
           {
-            isClosesTemporarily && (
+             (
               <Text typography="alert" value='CLOSED TEMPORARILY' color="red" />
              )
           }
 
           {
-            isOpenNow && <SvgXml
+            <SvgXml
             xml={open}
             width="30"
             height="30"

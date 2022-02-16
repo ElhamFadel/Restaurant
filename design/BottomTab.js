@@ -32,11 +32,22 @@ function Tabs() {
     }}
     >
       <Tab.Screen name="Restaurant"
-       component={HomeScreen} />
+       component={HomeScreen}
+       options={{
+          headerShown: false
+        }} 
+        />
       <Tab.Screen name="Map"
-       component={MapScreen}  />
+       component={MapScreen} 
+       options={{
+          headerShown: false
+        }}
+        />
       <Tab.Screen name="Settings"
-       component={SettingsScreen}  />
+       component={SettingsScreen} 
+       options={{
+          headerShown: false
+        }}  />
     </Tab.Navigator>
     </NavigationContainer>
   );
