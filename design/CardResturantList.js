@@ -1,27 +1,31 @@
 import { ScrollView, StyleSheet} from 'react-native'
 import Card from './CardResturant'
 import React, {  useEffect, useState } from 'react'
+import {getResturants} from "../api/resturant"
+import {filterResturants} from "../utils/filterResturants"
 import Loading from './Loading'
 
-const CardFoodList = () => {
+const CardFoodList = ({resultSearch}) => {
   const [isFetching, setIsFetch] = useState(false)
   const [data,setData] = useState([]);
 
-  const fetchData = async()=>{
-    setIsFetch(true)
-    try{
-     const response =  await fetch('https://raw.githubusercontent.com/ElhamFadel/Restaurant/master/data.json');
-     const json = await response.json()
-     setData(json.restaurants)
-    }catch(error){
-     console.log(error)
-    }
-    setIsFetch(false)
-  }
-  useEffect(()=>{
-  fetchData()
-  console.log(data)
+  useEffect(async ()=>{
+  setIsFetch(true)
+  const data = await getResturants();
+ if(data){
+  setData(data)
+  setIsFetch(false)
+ }
   },[])
+
+useEffect(async()=>{
+   setIsFetch(true)
+   const result= await filterResturants(resultSearch)
+   if(result){
+      setData(result)
+      setIsFetch(false)
+   }
+},[resultSearch])
 
   if (isFetching || !data) {
     return <Loading />;

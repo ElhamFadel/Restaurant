@@ -1,14 +1,15 @@
 import { StyleSheet,SafeAreaView} from 'react-native';
-import React from 'react';
+import React,{useState} from 'react';
 import SearchBarComponent from '../design/SearchBar';
 import CardResturantList from '../design/CardResturantList';
 
 
 const HomeScreen = () => {
+ const [search, setSearch] = useState("");
   return (
    <SafeAreaView style={styles.container} >
-   <SearchBarComponent />
-   <CardResturantList />
+   <SearchBarComponent setSearch={setSearch} value={search}  />
+   <CardResturantList resultSearch={search} />
    </SafeAreaView>
   );
 };

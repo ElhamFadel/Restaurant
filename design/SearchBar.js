@@ -3,12 +3,12 @@ import { SearchBar } from 'react-native-elements';
 import {  StyleSheet } from 'react-native';
 
 
-const SearchBarComponent = () => {
-  const [search, setSearch] = useState("");
+const SearchBarComponent = ({value,setSearch}) => {
+  
   return (
       <SearchBar
-        onChangeText={(text) => setSearch(text)}
-        value={search}
+        onChangeText={(text) =>setSearch(text) }
+        value={value}
         lightTheme={true}
         containerStyle={{
           padding: 0,
