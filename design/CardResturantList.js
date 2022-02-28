@@ -1,13 +1,16 @@
-import { ScrollView, StyleSheet} from 'react-native'
+import { ScrollView, StyleSheet,TouchableOpacity} from 'react-native'
 import Card from './CardResturant'
 import React, {  useEffect, useState } from 'react'
 import {getResturants} from "../api/resturant"
 import {filterResturants} from "../utils/filterResturants"
 import Loading from './Loading'
+import { useNavigation } from '@react-navigation/native'
+import ResturanScreen from "../screens/ResturanScreen"
 
 const CardFoodList = ({resultSearch}) => {
   const [isFetching, setIsFetch] = useState(false)
   const [data,setData] = useState([]);
+  const navigation = useNavigation()
 
   useEffect(async ()=>{
   setIsFetch(true)
@@ -35,7 +38,9 @@ useEffect(async()=>{
     <ScrollView  style={styles.container}>
      {  
        data.map((resturant)=>(
+       <TouchableOpacity  onPress={()=>navigation.navigate('ResturanScreen')}>
        <Card resturant={resturant} key={resturant.userId}  />
+       </TouchableOpacity>
        ))
      }
     </ScrollView>
